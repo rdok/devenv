@@ -31,6 +31,7 @@ function scheduleTest() {
 
 
 function addTestsToSuite() {
+    testFunctions=$1
 
     for testFunction in $testFunctions; do
         if  ! [[ $testFunction =~ ^test_* ]]; then continue; fi
