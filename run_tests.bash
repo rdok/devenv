@@ -2,18 +2,39 @@
 
 dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 testsPath="$dir/tests"
-resultsLogPath="$testsPath/_output/results.log"
-blue="\e[1;34m"
-resetColor="\e[0m"
 
-echo '' > "$resultsLogPath"
+suite() {
+    scheduleTests
+}
 
-for testPath in $testsPath/*_test; do
-    output="\n"
-    output+=$(printf "${blue}%0.s-${resetColor}" {1..80})
-    output+="\nTest $testPath\n"
-    output+=$(printf "${blue}%0.s-${resetColor}" {1..80})
-    echo -e $output
-    echo -e $output >> $resultsLogPath
-    bash "$testPath" 2>&1 | tee -a "$resultsLogPath"
-done
+
+function scheduleTests() {
+    for testPath in $testsPath/*_test; do
+        scheduleTest $testPath
+    done
+}
+
+
+function scheduleTest() {
+    testPath=$1
+
+    . $testPath
+
+    if grep -q 'oneTimeSetUp' $testPath; then
+        oneTimeSetUp
+    fi
+
+    testFunctions=$(grep -oP ^test_[A-Za-z_0-9]+ $testPath)
+
+    addTestsToSuite $testFunctions
+}
+
+
+function addTestsToSuite() {
+
+    for testFunction in $testFunctions; do
+        if  ! [[ $testFunction =~ ^test_* ]]; then continue; fi
+
+        suite_addTest $testFunction
+    done
+}
