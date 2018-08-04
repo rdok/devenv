@@ -9,7 +9,7 @@ setPs1() {
     currentDir="\w"
     git="\$(__git_ps1)"
     accessSymbol="\$"
-                                                                                    
+
     PS1="$boldBlue$username@$hostname:"
     PS1+="$yellow$currentDir"
     PS1+="$green$git"

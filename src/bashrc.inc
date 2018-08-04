@@ -1,0 +1,3 @@
+bashrcLocation() {
+    echo "${HOME}/.bashrc"
+}
