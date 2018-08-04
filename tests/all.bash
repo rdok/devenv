@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 
-testsPath=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-
 suite() {
     scheduleTests
 }
 
-
 function scheduleTests() {
+    testsPath=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
     for testPath in $testsPath/*_test.bash; do
         scheduleTest $testPath
     done
