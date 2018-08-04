@@ -11,3 +11,5 @@ the development environment manually, or through gists.
 - git clone 
 - sh installation
 
+## Tests
+`bash shunit2 tests/all.bash`

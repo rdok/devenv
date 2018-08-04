@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-testsPath="$dir/tests"
+testsPath=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 suite() {
     scheduleTests
@@ -9,7 +8,7 @@ suite() {
 
 
 function scheduleTests() {
-    for testPath in $testsPath/*_test; do
+    for testPath in $testsPath/*_test.bash; do
         scheduleTest $testPath
     done
 }
