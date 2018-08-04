@@ -1,0 +1,12 @@
+###############################################################################
+#   Bash Prompt
+###############################################################################
+. bash_prompt.sh
+
+bashPromptLocation=~/.bashrc
+bashPromptString="source ~/.bash_prompt"
+
+if ! grep -q $bashPromptString $bashPromptLocation; then
+    echo $bashPromptString >> $bashPromptLocation
+fi
+###############################################################################

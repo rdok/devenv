@@ -1,0 +1,22 @@
+#! /bin/sh
+
+oneTimeSetUp() {
+    script=$(readlink -f "$0")
+    scriptPath=$(dirname "$script")
+
+    . $scriptPath/../src/bash_prompt.inc
+}
+
+test_it_generates_the_location_of_bash_prompt() {
+    previousHome=$HOME
+    HOME="/path"
+    expected="$HOME/.bash_prompt"
+    actual=$(bashPromptLocation)
+
+    printf -v message "Expected: %s Actual: %s" "$expected" "$actual"
+
+    assertEquals "$message" "$expected" "$actual"
+    HOME="$previousHome"
+}
+
+. shunit2
