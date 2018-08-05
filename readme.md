@@ -1,4 +1,6 @@
 ## Development environment
+[![Build Status](https://travis-ci.org/rdok/devenv.svg?branch=master)](https://travis-ci.org/rdok/devenv)
+
 - Bash prompt
 - Vim IDE                                                  
 - Aliases
