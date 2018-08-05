@@ -1,3 +1,7 @@
+bashrcName() {
+    echo ".bashrc"
+}
+
 bashrcPath() {
-    echo "${HOME}/.bashrc"
+    echo "${HOME}/$(bashrcName)"
 }

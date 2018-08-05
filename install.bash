@@ -5,10 +5,14 @@
 ###############################################################################
 . ./src/bash_prompt.inc.bash
 . ./src/bashrc.inc.bash
-. ./src/helpers.inc.bash
+. ./src/file.inc.bash
+. ./src/logger.inc.bash
 
-bashrcPath=$(bashrcPath)
-bashPromptSrcCmd=$(bashPromptSrcCmd)
+info 'Installing the bash_prompt...'
+appendStringToFile "$(generatePs1)" "$(bashPromptPath)"
 
-appendStringToFile "$bashPromptSrcCmd" "$bashrcPath"
+info 'Instructing your system to use bash_prompt...'
+appendStringToFile "$(bashPromptSrcCmd)" "$(bashrcPath)"
+
+notice 'Done'
 
