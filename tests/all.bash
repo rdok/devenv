@@ -7,7 +7,7 @@ suite() {
 function scheduleTests() {
     testsPath=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-    for testPath in $testsPath/*_test.*; do
+    for testPath in $testsPath/**/*_test.*; do
         scheduleTest $testPath
     done
 }

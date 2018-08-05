@@ -3,7 +3,7 @@
 oneTimeSetUp() {
     dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-    . "$dir/../src/bashrc.inc.bash"
+    . "$dir/../../src/bashrc.inc.bash"
 }
 
 test_it_generates_the_location_of_bashrc() {

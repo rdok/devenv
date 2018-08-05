@@ -3,7 +3,7 @@
 oneTimeSetUp() {
     dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-    . "$dir/../src/bash_prompt.inc.bash"
+    . "$dir/../../src/bash_prompt.inc.bash"
 }
 
 test_it_generates_the_command_to_source_the_bash_prompt() {
