@@ -3,6 +3,7 @@ assertFileContainsString() {
     string="$2"
 
     assertStringNotEmpty $string
+    assertFileIsValid $file
 
     fileContainsString=$(cat "$file" | \ 
         grep -xqFe "$string" && \
@@ -23,4 +24,16 @@ assertStringNotEmpty() {
     message=$(printf "Failed asserting the given string is not empty.")
 
     assertFalse "$message" "$stringIsEmpty"
+}
+
+assertFileIsValid() {
+    file="$1"
+
+    assertStringNotEmpty "$file"
+
+    isFile=$([[ -f "$file" ]] && echo true || echo false)
+
+    message=$(printf "Failed asserting file '%s' is valid." "$file")
+
+    assertTrue "$message" "$isFile"
 }
