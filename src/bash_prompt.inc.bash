@@ -21,7 +21,7 @@ generatePs1() {
     ps1="$boldBlue$username@$hostname:"
     ps1+="$yellow$currentDir"
     ps1+="$green$git"
-    ps1+="\n"
+    ps1+="\\n"
     ps1+="$resetColor$accessSymbol "
     ps1="PS1=\"$ps1\""
 
