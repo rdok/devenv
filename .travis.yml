@@ -1,0 +1,4 @@
+language: bash
+
+script:
+- bash shunit2 tests/all.bash

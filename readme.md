@@ -25,4 +25,4 @@ keys.
 `bash installer.php`
 
 ## Tests
-`bash shunit2 tests/all.bash` 
+`bash shunit2 tests/all.bash`
