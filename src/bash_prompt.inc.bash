@@ -23,7 +23,7 @@ generatePs1() {
     ps1+="$green$git"
     ps1+="\n"
     ps1+="$resetColor$accessSymbol "
-    ps1="PS1=$ps1"
+    ps1="PS1=\"$ps1\""
 
     echo "$ps1"
 }

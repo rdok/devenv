@@ -1,21 +1,28 @@
 ## Development environment
 - Bash prompt
-- Vim IDE
+- Vim IDE                                                  
+- Aliases
+- Etc
 
 ## Plan
-> One script to rule them all. 
-Having to frequently switch between environments, it is cumbersome to setup 
-the development environment manually, or through gists.
+> One script to rule them all. Having to frequently switch between 
+environments, it is cumbersome to setup the development environment manually, 
+or through gists.                         
 
-As a solution to this, let's delegate this setup to a script. So whenever
-there is a need to quickly setup the environment, `talking to you vagrant 
-destroyer`, the setup will have two steps. First, cloning the project, and 
-secondly, executing the installer script.
+So let's delegate this setup to a script. To quickly setup the environment, 
+`talking to you vagrant destroyer`.
 
-This will install the bash prompt, customized vim, aliases, etc. 
+The setup has two steps. First, cloning the project, and secondly, executing 
+the installer script.                                       
+                                                                
+This will install the bash prompt, customized vim, aliases, etc.
 
 ## Installation
+> Use https instead of git protocol to bypass the requirement of having shh 
+keys.  
+
+`git clone https://github.com/rdok/devenv.git`
 `bash installer.php`
 
 ## Tests
-`bash shunit2 tests/all.bash`
+`bash shunit2 tests/all.bash` 
