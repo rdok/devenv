@@ -21,7 +21,7 @@ test_it_appends_a_string_to_the_file() {
     echo '' > $file
 
     # when i call the function to append the string
-    #appendStringToFile "some-string" $file
+    appendStringToFile "some-string" $file
 
     # then the file should contain this new string
     assertFileContainsString $file "some-string"
