@@ -1,5 +1,9 @@
-bashPromptLocation() {
+bashPromptPath() {
     echo "${HOME}/.bash_prompt"
+}
+
+bashPromptSrcCmd() {
+    echo "source $(bashPromptPath)"
 }
 
 #setPs1() {

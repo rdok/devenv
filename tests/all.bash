@@ -7,7 +7,7 @@ suite() {
 function scheduleTests() {
     testsPath=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-    for testPath in $testsPath/*_test.bash; do
+    for testPath in $testsPath/*_test.*; do
         scheduleTest $testPath
     done
 }
@@ -22,16 +22,16 @@ function scheduleTest() {
         oneTimeSetUp
     fi
 
-    testFunctions=$(grep -oP ^test_[A-Za-z_0-9]+ $testPath)
+    testFunctions=($(grep -oE ^test_[A-Za-z_0-9]+ "$testPath"))
 
-    addTestsToSuite $testFunctions
+    addTestsToSuite "${testFunctions[@]}"
 }
 
 
 function addTestsToSuite() {
-    testFunctions=$1
+    testFunctions=("$@")
 
-    for testFunction in $testFunctions; do
+    for testFunction in "${testFunctions[@]}"; do
         if  ! [[ $testFunction =~ ^test_* ]]; then continue; fi
 
         suite_addTest $testFunction
