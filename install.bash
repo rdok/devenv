@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 
-###############################################################################
-#   Bash Prompt
-###############################################################################
-. ./src/bash_prompt.inc.bash
-. ./src/bashrc.inc.bash
-. ./src/file.inc.bash
-. ./src/logger.inc.bash
+scriptDir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+. "$scriptDir/src/bash_prompt.inc.bash"
+. "$scriptDir/src/bashrc.inc.bash"
+. "$scriptDir/src/file.inc.bash"
+. "$scriptDir/src/logger.inc.bash"
 
 info 'Installing the bash_prompt...'
 appendStringToFile "$(generatePs1)" "$(bashPromptPath)"
