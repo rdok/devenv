@@ -3,14 +3,14 @@
 oneTimeSetUp() {
     dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-    . "$dir/../../src/bashrc.inc.bash"
+    . "$dir/../../src/rc.inc.bash"
 }
 
-test_it_generates_the_location_of_bashrc() {
+test_it_generates_the_location_of_rc() {
     previousHome=$HOME
     HOME="/path"
     expected="$HOME/.bashrc"
-    actual=$(bashrcPath)
+    actual=$(rcPath)
 
     printf -v message "Expected: %s Actual: %s" "$expected" "$actual"
 

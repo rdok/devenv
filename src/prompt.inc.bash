@@ -1,9 +1,9 @@
-bashPromptPath() {
+promptPath() {
     echo "${HOME}/.bash_prompt"
 }
 
-bashPromptSrcCmd() {
-    echo "source $(bashPromptPath)"
+promptSrcCmd() {
+    echo "source $(promptPath)"
 }
 
 generatePs1() {

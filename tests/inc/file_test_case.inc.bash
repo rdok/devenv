@@ -42,3 +42,19 @@ assertFileIsValid() {
 
     assertTrue "$message" "$isFile"
 }
+
+assertFileNotEmpty() {
+    local file="$1"
+
+    local contents=$(cat $file)
+
+    assertStringNotEmpty "$contents"
+}
+
+assertFileEmpty() {
+    local file="$1"
+
+    local contents=$(cat $file)
+
+    assertStringEmpty "$contents"
+}

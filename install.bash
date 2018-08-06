@@ -5,18 +5,27 @@ scriptDir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 
 notice "Initializing..."
-. "$scriptDir/src/bash_prompt.inc.bash"
-. "$scriptDir/src/bashrc.inc.bash"
+. "$scriptDir/src/prompt.inc.bash"
+. "$scriptDir/src/rc.inc.bash"
 . "$scriptDir/src/file.inc.bash"
+. "$scriptDir/src/aliases.inc.bash"
+rcPath="$(rcPath)"
+promptPath="$(promptPath)"
+aliasesPath="$(aliasesPath)"
 
 
-info 'Installing the bash_prompt...'
-appendStringToFile "$(generatePs1)" "$(bashPromptPath)"
+info 'Installing bash_prompt...'
+truncateFile $promptPath
+appendStringToFile "$(generatePs1)" "$promptPath"
+appendStringToFile "$(promptSrcCmd)" "$(rcPath)"
 
+info 'Installing aliases...'
+truncateFile $aliasesPath
+appendStringToFile "$(generateAliases)" $aliasesPath
+appendStringToFile "$(aliasesSrcCmd)" "$(rcPath)"
 
-info 'Instructing the os to use bash_prompt...'
-appendStringToFile "$(bashPromptSrcCmd)" "$(bashrcPath)"
-
+info "Sourcing .bashrc"
+source $rcPath
 
 notice "Done\n"
 
