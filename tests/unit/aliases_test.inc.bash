@@ -13,7 +13,7 @@ test_it_generates_the_aliases() {
     assertStringNotEmpty $aliases
 }
 
-test_it_generates_the_location_of_aliases_file() {
+test_it_generates_the_aliases_path() {
     previousHome=$HOME
     HOME="/path"
     expected="$HOME/.bash_aliases"
@@ -25,7 +25,7 @@ test_it_generates_the_location_of_aliases_file() {
     HOME="$previousHome"
 }
 
-test_it_generates_the_command_to_source_the_aliases() {
+test_it_generates_the_aliases_source_command() {
     aliasesPath="$(aliasesPath)"
     expected="source $aliasesPath"
     actual=$(aliasesSrcCmd)

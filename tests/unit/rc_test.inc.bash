@@ -6,7 +6,7 @@ oneTimeSetUp() {
     . "$dir/../../src/rc.inc.bash"
 }
 
-test_it_generates_the_location_of_rc() {
+test_it_generates_the_rc_path() {
     previousHome=$HOME
     HOME="/path"
     expected="$HOME/.bashrc"
