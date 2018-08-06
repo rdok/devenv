@@ -10,7 +10,7 @@ test_it_generates_the_aliases() {
 
     aliases="$(generateAliases)"
 
-    assertStringNotEmpty $aliases
+    assertStringNotEmpty "$aliases"
 }
 
 test_it_generates_the_aliases_path() {
